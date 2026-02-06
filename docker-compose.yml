@@ -1,0 +1,13 @@
+services:
+  backend:
+    build: ./app
+    container_name: backend
+    expose:
+      - "8000"
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
